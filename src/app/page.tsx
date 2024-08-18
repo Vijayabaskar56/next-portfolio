@@ -6,6 +6,8 @@ import AnimatedBackground from "@/components/ui/animatedBackground";
 import { motion } from 'framer-motion';
 import { InView } from "@/components/ui/inView";
 import { DialogBasicOne, DialogBasicTwo } from "@/components/DialogBase";
+import ThemeChanger from "@/components/ThemeSwitcher";
+import { Carousel, CarouselContent, CarouselItem, CarouselNavigation } from "@/components/ui/carosol";
 
 export default function Home() {
   const ITEMS = [
@@ -40,8 +42,9 @@ export default function Home() {
       description: 'Delete items with swipe gestures.',
     },
   ];
+
   return (
-    <main className="flex  md:pl-32 flex-col items-center justify-between py-24 md:p-0 sm:w-md px-14">
+    <main className="flex  md:pl-32 pl-24 flex-col items-center justify-between py-24 md:p-0 sm:w-md md:px-14 px-7">
       <section id='hero' className="grid grid-cols-1 my-auto lg:grid-cols-2 w-sm md:w-full align-middle justify-center items-center h-screen">
         <div className="justify-center text-left sm:justify-center">
           <h1 className="text-5xl font-bold font-prospec">
@@ -62,45 +65,52 @@ export default function Home() {
           </div>
         </div>
       </section>
-        <TextEffect per='char' as="h1" preset='fade' className="text-green-500 font-extrabold text-2xl font-prospec">
-          SKILL & Tools
-        </TextEffect>
-      <section id="skills" className="w-full h-full">
-        <div className='flex md:h-[500px] h-fit items-center justify-center align-middle  mt-12 pb-12'>
-          <InView
-            viewOptions={{ once: true, margin: '0px 0px -250px 0px'  }}
-            variants={{
-              hidden: {
-                opacity: 0,
+      <TextEffect per='char' as="h1" preset='fade' className="text-green-500 font-extrabold text-2xl font-prospec">
+        SKILL & Tools
+      </TextEffect>
+      <section id="skills" className="md:w-[800px] w-full md:px-10 h-full">
+        <InView
+          viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
+          variants={{
+            hidden: {
+              opacity: 0,
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.09,
               },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.09,
-                },
-              },
+            },
+          }}
+        >
+          <AnimatedBackground
+            className='rounded-lg w-full bg-green-500 dark:bg-green-500'
+            transition={{
+              type: 'spring',
+              bounce: 0.2,
+              duration: 0.6,
             }}
-            className="w-full"
+            enableHover
           >
-            <div className='h-full w-full justify-center items-center align-middle columns-2 md:columns-3'>
-              {[
-                'next.svg',
-                'graphql.svg',
-                'typescript.svg',
-                'node.svg',
-                'react.svg',
-                'tailwind.svg',
-                'mysql.svg',
-                'mongodb.svg',
-                'java.svg',
-                'html.svg',
-                'css3.svg',
-                'git.svg',
-                'bootstrap.svg',
-                'php.svg',
-                'figma.svg'
-              ].map((imgSrc, index) => {
-                return (
+            {[
+              'next.svg',
+              'graphql.svg',
+              'typescript.svg',
+              'node.svg',
+              'react.svg',
+              'tailwind.svg',
+              'mysql.svg',
+              'mongodb.svg',
+              'java.svg',
+              'html.svg',
+              'css3.svg',
+              'git.svg',
+              'bootstrap.svg',
+              'php.svg',
+              'figma.svg'
+            ].map((imgSrc, index) => {
+              return (
+                <div key={index} data-id={`card-${index}`} className="text-center p-6 col">
                   <motion.div
                     variants={{
                       hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
@@ -111,21 +121,26 @@ export default function Home() {
                       },
                     }}
                     key={index}
-                    className='mb-8 justify-center self-center align-middle items-center flex'
+                    className='mb-4 bg-black dark:bg-white'
                   >
-                    <Image
-                      src={imgSrc}
-                      height={0}
-                      width={0}
-                      alt={`Image placeholder from cosmos.so, index:${index}`}
-                      className='rounded-lg w-16 h-16'
-                    />
+                    <div className='rounded-sm'>
+                      <h3 className='text-base font-medium text-zinc-800 dark:text-zinc-50'>
+                        next.svg
+                      </h3>
+                      <Image
+                        src={imgSrc}
+                        height={0}
+                        width={0}
+                        alt={`Image placeholder from cosmos.so, index:${index}`}
+                        className='rounded w-20 h-20'
+                      />
+                    </div>
                   </motion.div>
-                );
-              })}
-            </div>
-          </InView>
-        </div>
+                </div>
+              );
+            })}
+          </AnimatedBackground>
+        </InView>
       </section>
       <TextEffect per='char' as="h1" preset='fade' className="text-green-500 font-extrabold text-2xl font-prospec">
         Education
@@ -142,7 +157,7 @@ export default function Home() {
               scale: 1,
             },
           }}
-          className='w-96'
+          className='w-fit max-w-96'
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           viewOptions={{ margin: '0px 0px -150px 0px' }}
         >
@@ -166,7 +181,7 @@ export default function Home() {
           }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           viewOptions={{ margin: '0px 0px -150px 0px' }}
-          className='w-96'
+          className='w-fit max-w-96'
         >
           <div className="border-l-4 dark:border-white border-l-black px-2 my-2 flex flex-col gap-2">
             <span className="text-xl font-semibold text-green-500">SECONDARY</span>
@@ -188,7 +203,7 @@ export default function Home() {
           }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           viewOptions={{ margin: '0px 0px -150px 0px' }}
-          className='w-96'
+          className='w-fit max-w-96'
         >
           <div className="border-l-4 dark:border-white border-l-black px-2 my-2 flex flex-col gap-2">
             <span className="text-xl font-semibold text-green-500">SECONDARY</span>
@@ -198,7 +213,10 @@ export default function Home() {
           </div>
         </InView>
       </section>
-      <section id="Web Projects" className="w-fit h-full">
+      <TextEffect per='char' as="h1" preset='fade' className="text-green-500 font-extrabold text-3xl mb-3 font-prospec">
+        Mobile Project
+      </TextEffect>
+      <section id="Mobilr Project" className="max-w-[890px]">
         <InView
           viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
           variants={{
@@ -210,67 +228,49 @@ export default function Home() {
               transition: {
                 staggerChildren: 0.09,
               },
+              width: '100%',
             },
           }}
+          className="w-fit justify-center flex"
         >
-          <div className='w-full flex items-center justify-between gap-10'>
-            <motion.div
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                filter: 'blur(0px)',
+                width: '100%',
+              },
+            }}
+            className={`mb-4 w-fit h-full flex flex-col items-center justify-center`}
+          >
+            <InView
               variants={{
-                hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+                hidden: {
+                  opacity: 0,
+                  x: 100,
+                },
                 visible: {
                   opacity: 1,
-                  scale: 1,
-                  filter: 'blur(0px)',
+                  x: 0,
                 },
               }}
-              className={`mb-4 w-full flex flex-col items-center justify-between`}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              viewOptions={{ margin: '0px 0px -350px 0px' }}
+              className="w-fit flex md:flex-row flex-col h-full justify-between  gap-10"
             >
-              <div className="inline-flex flex-row gap-36 justify-between align-middle  w-full">
-                <div className="flex justify-start">
-                  <InView
-                    variants={{
-                      hidden: {
-                        opacity: 0,
-                        x: 0,
-                      },
-                      visible: {
-                        opacity: 1,
-                        x: 100,
-                      },
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    viewOptions={{ margin: '0px 0px -350px 0px' }}
-                  >
-                    <div className="flex flex-col gap-1">
-                      <DialogBasicOne />
-                      <DialogBasicOne />
-                    </div>
-                  </InView>
-                </div>
-                <div>
-                  <InView
-                    variants={{
-                      hidden: {
-                        opacity: 0,
-                        x: 100,
-                      },
-                      visible: {
-                        opacity: 1,
-                        x: 0,
-                      },
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    viewOptions={{ margin: '0px 0px -350px 0px' }}
-                  >
-                    <DialogBasicTwo />
-                  </InView>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              <DialogBasicTwo />
+              <DialogBasicTwo />
+              <DialogBasicTwo />
+            </InView>
+          </motion.div>
         </InView>
       </section>
-      {/* <section id="Mobilr Project">
+      <TextEffect per='char' as="h1" preset='fade' className="text-green-500 font-extrabold text-3xl mb-3 font-prospec">
+        Mobile Project
+      </TextEffect>
+      <section id="Mobilr Project" className="max-w-[890px]">
         <InView
           viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
           variants={{
@@ -282,67 +282,117 @@ export default function Home() {
               transition: {
                 staggerChildren: 0.09,
               },
+              width: '100%',
             },
           }}
+          className="w-fit justify-center flex"
         >
-          <div className='w-full flex items-center justify-between gap-10'>
-            <motion.div
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                filter: 'blur(0px)',
+                width: '100%',
+              },
+            }}
+            className={`mb-4 w-fit h-full flex flex-col items-center justify-center`}
+          >
+            <InView
               variants={{
-                hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+                hidden: {
+                  opacity: 0,
+                  x: 100,
+                },
                 visible: {
                   opacity: 1,
-                  scale: 1,
-                  filter: 'blur(0px)',
+                  x: 0,
                 },
               }}
-              className={`mb-4 w-screen h-full flex flex-col items-center justify-between`}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              viewOptions={{ margin: '0px 0px -350px 0px' }}
+              className="w-fit flex md:flex-row flex-col h-full justify-between  gap-10"
             >
-              <div className="inline-flex flex-row w-full justify-between align-middle ">
-                <div className="flex justify-start">
-                  <InView
-                    variants={{
-                      hidden: {
-                        opacity: 0,
-                        x: 0,
-                      },
-                      visible: {
-                        opacity: 1,
-                        x: 100,
-                      },
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    viewOptions={{ margin: '0px 0px -350px 0px' }}
-                  >
-                    <div className="flex flex-col justify-center">
-                      <DialogBasicOne />
-                      <DialogBasicOne />
-                    </div>
-                  </InView>
-                </div>
-                <div className="mr-20">
-                  <InView
-                    variants={{
-                      hidden: {
-                        opacity: 0,
-                        x: 100,
-                      },
-                      visible: {
-                        opacity: 1,
-                        x: 0,
-                      },
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    viewOptions={{ margin: '0px 0px -350px 0px' }}
-                  >
-                    <DialogBasicTwo />
-                  </InView>
+              <DialogBasicTwo />
+              <DialogBasicTwo />
+              <DialogBasicTwo />
+            </InView>
+          </motion.div>
+        </InView>
+      </section>
+      <section>
+        <div className='grid grid-cols-2 p-10 md:grid-cols-3'>
+          <AnimatedBackground
+            className='rounded-lg bg-green-500 dark:bg-zinc-800'
+            transition={{
+              type: 'spring',
+              bounce: 0.2,
+              duration: 0.6,
+            }}
+            enableHover
+          >
+            {ITEMS.map((item, index) => (
+              <div key={index} data-id={`card-${index}`} className="p-7">
+                <div className='flex select-none flex-col space-y-1 p-4 w-full h-full bg-black rounded-sm'>
+                  <h3 className='text-base font-medium text-zinc-800 dark:text-zinc-50'>
+                    {item.title}
+                  </h3>
+                  <p className='text-base text-zinc-600 dark:text-zinc-400'>
+                    {item.description}
+                  </p>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </InView>
-      </section> */}
-
+            ))}
+          </AnimatedBackground>
+        </div>
+      </section>
+      <div className='relative w-full px-4'>
+        <Carousel>
+          <CarouselContent className='-ml-4'>
+            <CarouselItem className='basis-1/3 pl-4'>
+              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                1
+              </div>
+            </CarouselItem>
+            <CarouselItem className='basis-1/3 pl-4'>
+              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                2
+              </div>
+            </CarouselItem>
+            <CarouselItem className='basis-1/3 pl-4'>
+              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                3
+              </div>
+            </CarouselItem>
+            <CarouselItem className='basis-1/3 pl-4'>
+              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                4
+              </div>
+            </CarouselItem>
+            <CarouselItem className='basis-1/3 pl-4'>
+              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                5
+              </div>
+            </CarouselItem>
+            <CarouselItem className='basis-1/3 pl-4'>
+              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                6
+              </div>
+            </CarouselItem>
+            <CarouselItem className='basis-1/3 pl-4'>
+              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                7
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselNavigation
+            className='absolute -bottom-14 left-auto top-auto w-full justify-end gap-2'
+            classNameButton='bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800'
+            alwaysShow
+          />
+        </Carousel>
+      </div>
     </main>
   );
 }

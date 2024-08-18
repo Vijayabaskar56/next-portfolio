@@ -1,6 +1,7 @@
+'use client';
 import "../../src/app/globals.css";
 import Link from "next/link";
-import {  Linkedin, Mail, NotebookTabsIcon ,X } from "lucide-react";
+import { Linkedin, Mail, NotebookTabsIcon, X } from "lucide-react";
 import {
  Tooltip,
  TooltipContent,
@@ -8,10 +9,14 @@ import {
 } from "@/components/ui/tooltip"
 import { Separator } from "@/components/ui/separator";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import ThemeChanger from "./ThemeSwitcher";
 
 const SideBar = () => {
  return (
-  <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col ml-3 justify-between bg-background sm:flex">
+  <aside className="fixed inset-y-0 left-0 z-10 w-14 flex-col md:ml-3 justify-between bg-background sm:flex">
+   <div className="flex justify-center items-center mt-20">
+    <ThemeChanger />
+   </div>
    <div className="h-1/3 flex align-middle justify-center">
     <Separator orientation="vertical" decorative className="bg-black m-24 bg-green-500" />
    </div>

@@ -4,12 +4,12 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SideBar from "@/components/SideBar";
-
+import { ThemeProvider } from "next-themes";
 
 const prospec = localFont({
-  src : [
+  src: [
     {
-      path : "../../public/fonts/Prospec.otf",
+      path: "../../public/fonts/Prospec.otf",
     },
     // {
     //   path : "../../public/fonts/Prospec-Outline.otf",
@@ -17,7 +17,7 @@ const prospec = localFont({
   ],
   adjustFontFallback: 'Arial',
   preload: true,
-  variable : '--font-prospec'
+  variable: '--font-prospec'
 })
 
 export const metadata: Metadata = {
@@ -37,10 +37,12 @@ export default function RootLayout({
         prospec.variable
       )}
       >
-      <TooltipProvider>
-        <SideBar />
-        {children}
-      </TooltipProvider>
+        <ThemeProvider attribute="class">
+          <TooltipProvider>
+            <SideBar />
+            {children}
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
