@@ -10,11 +10,10 @@ import {
   DialogContainer,
 } from '@/components/ui/dialog';
 import { MousePointer, PlusIcon } from 'lucide-react';
-import twitterImage from '../../public/Twitter-Clone.png';
 import { Cursor } from './ui/cursor';
 import { useState } from 'react';
 import { TransitionPanel } from './ui/transistionPanel';
-
+import Link from 'next/link';
 
 export function DialogBasicOne({ className }: { className?: string }) {
   return (
@@ -34,7 +33,7 @@ export function DialogBasicOne({ className }: { className?: string }) {
         <DialogImage
           src='https://utfs.io/f/53030c8a-9c40-4981-ad5b-4414bee08939-plyu9p.png'
           alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
-          className='w-full object-contain'
+          className='w-full h-5/6'
         />
         <div className='flex flex-grow flex-row items-end justify-between p-2'>
           <div>
@@ -107,28 +106,24 @@ export function DialogBasicOne({ className }: { className?: string }) {
     </Dialog>
   );
 }
-export function DialogBasicTwo() {
+export function ProjectCard({
+  title,
+  subtitle,
+  image,
+  imageDescription,
+  liveLink,
+  githubLink,
+  content,
+}: {
+  title: string;
+  subtitle: string;
+  image: string;
+  imageDescription: string;
+  liveLink: string;
+  githubLink: string;
+  content: { title: string; subtitle: string; content: string }[];
+}) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const ITEMS = [
-    {
-      title: 'Aesthetics',
-      subtitle: 'Refining Visual Harmony',
-      content:
-        'Explore the principles of motion aesthetics that enhance the visual appeal of interfaces. Learn to balance timing, easing, and the flow of motion to create seamless user experiences.',
-    },
-    {
-      title: 'Art',
-      subtitle: 'Narrative and Expression',
-      content:
-        'Delve into how motion can be used as an artistic tool to tell stories and evoke emotions, making digital interactions feel more human and expressive.',
-    },
-    {
-      title: 'Technique',
-      subtitle: 'Mastering Motion Tools',
-      content:
-        'Gain proficiency in advanced techniques such as physics-based animations, 3D transformations, and complex sequencing to elevate your design skills and implementation.',
-    },
-  ];
   return (
     <Dialog
       transition={{
@@ -143,18 +138,20 @@ export function DialogBasicTwo() {
         }}
         className='flex  max-w-[400px] max-h-[400px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900'
       >
-        <DialogImage
-          src='https://utfs.io/f/53030c8a-9c40-4981-ad5b-4414bee08939-plyu9p.png'
-          alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
-          className='h-4/6 w-full object-cover'
-        />
+        <Link href={'#'}>
+          <DialogImage
+            src={image}
+            alt={imageDescription}
+            className='h-full w-full'
+          />
+        </Link>
         <div className='flex flex-grow flex-row items-end justify-between p-2'>
           <div>
             <DialogTitle className='text-zinc-950 dark:text-zinc-50'>
-              EB27
+              {title}
             </DialogTitle>
             <DialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
-              Edouard Wilfrid Buquet
+              {subtitle}
             </DialogSubtitle>
           </div>
           <button
@@ -175,30 +172,30 @@ export function DialogBasicTwo() {
         >
           <div>
             <DialogImage
-              src="https://utfs.io/f/53030c8a-9c40-4981-ad5b-4414bee08939-plyu9p.png"
-              alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
+              src={image}
+              alt={imageDescription}
               className='h-full w-full'
             />
-             <Cursor
-                  attachToParent
-                  variants={{
-                    initial: { scale: 0.3, opacity: 0 },
-                    animate: { scale: 1, opacity: 1 },
-                    exit: { scale: 0.3, opacity: 0 },
-                  }}
-                  transition={{
-                    ease: 'easeInOut',
-                    duration: 0.15,
-                  }}
-                  className='left-12 top-4'
-                >
-                  <div>
-                    <MousePointer className='h-6 w-6' />
-                    <div className='ml-4 mt-1 rounded-[4px] bg-green-500 px-2 py-0.5 text-neutral-50'>
-                      Live Site
-                    </div>
-                  </div>
-                </Cursor>
+            <Cursor
+              attachToParent
+              variants={{
+                initial: { scale: 0.3, opacity: 0 },
+                animate: { scale: 1, opacity: 1 },
+                exit: { scale: 0.3, opacity: 0 },
+              }}
+              transition={{
+                ease: 'easeInOut',
+                duration: 0.15,
+              }}
+              className='left-12 top-4'
+            >
+              <div>
+                <MousePointer className='h-6 w-6' />
+                <div className='ml-4 mt-1 rounded-[4px] bg-green-500 px-2 py-0.5 text-neutral-50'>
+                  Live Site
+                </div>
+              </div>
+            </Cursor>
           </div>
 
           <div className='p-6'>
@@ -217,7 +214,7 @@ export function DialogBasicTwo() {
               }}
             >
               <div className='mb-4 flex space-x-2'>
-                {ITEMS.map((item, index) => (
+                {content?.map((item, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveIndex(index)}
@@ -240,7 +237,7 @@ export function DialogBasicTwo() {
                     exit: { opacity: 0, y: 50, filter: 'blur(4px)' },
                   }}
                 >
-                  {ITEMS.map((item, index) => (
+                  {content.map((item, index) => (
                     <div key={index} className='py-2'>
                       <h3 className='mb-2 font-medium text-zinc-800 dark:text-zinc-100'>
                         {item.subtitle}
@@ -252,11 +249,11 @@ export function DialogBasicTwo() {
               </div>
               <a
                 className='mt-2 inline-flex text-zinc-500 underline'
-                href='https://www.are.na/block/12759029'
+                href={githubLink}
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                Are.na block
+                View Source
               </a>
             </DialogDescription>
           </div>
