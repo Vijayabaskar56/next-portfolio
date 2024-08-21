@@ -1,37 +1,53 @@
-'use client';
+"use client";
 import { TextEffect } from "@/components/ui/textEffect";
-import Image from "next/image";
-import Rive, { Alignment, Fit, Layout } from '@rive-app/react-canvas';
 import AnimatedBackground from "@/components/ui/animatedBackground";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { InView } from "@/components/ui/inView";
 import { ProjectCard } from "@/components/DialogBase";
 import { Separator } from "@/components/ui/separator";
 import { MOBILEPROJECTS, WEBPROJECTSONE, WEBPROJECTSTWO } from "./data";
-import { useRive, useStateMachineInput } from '@rive-app/react-canvas';
-import { Carousel, CarouselContent, CarouselItem, CarouselNavigation } from "@/components/ui/carosol";
+import { useRive } from "@rive-app/react-canvas";
+import { Bootstrap, CSSSVG, FigmaSVg, GitSvg, GraphqlSvg, HtmlSvg, JavascriptSvg, JavaSVG, MongodbSvg, MySQLSvg, NextJsSvg, NodeSvg, PHP, ReactSvg, Tailwind, TypeScriptSvg } from "@/svg";
+
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNavigation,
+// } from "@/components/ui/carosol";
 
 export default function Home() {
   const { rive, RiveComponent } = useRive({
-    src: 'https://utfs.io/f/f9a951bf-d89f-49f4-a8e1-9ee07c65ee9f-v45c7x.riv',
+    src: "https://utfs.io/f/f9a951bf-d89f-49f4-a8e1-9ee07c65ee9f-v45c7x.riv",
     autoplay: true,
-    animations: ['Turn-copy'],
+    artboard: "Laptop",
+    animations: ["Turn-copy"],
   });
-
-
 
   return (
     <main className="flex  md:pl-32 pl-24 flex-col items-center justify-between py-24 md:p-0 sm:w-md md:px-14 px-7">
-      <section id='hero' className="grid grid-cols-1 my-auto lg:grid-cols-2 w-sm md:w-full align-middle justify-center items-center h-screen">
+      <section
+        id="hero"
+        className="grid grid-cols-1 my-auto lg:grid-cols-2 w-sm md:w-full align-middle justify-center items-center h-screen"
+      >
         <div className="justify-center text-left sm:justify-center">
           <h1 className="text-5xl font-bold font-prospec">
             Hi👋, I am <br />{" "}
-            <TextEffect per='char' preset='fade' className="text-green-500 font-extrabold font-prospec">
+            <TextEffect
+              per="char"
+              preset="fade"
+              className="text-green-500 font-extrabold font-prospec"
+            >
               Vijaya baskar
             </TextEffect>
-            <TextEffect per='word' as='p' preset='blur' className="pt-6 font-sans w-fit text-base dark:text-neutral-400">
-              a Full Stack Developer from India.
-              Learning, Exploring and Experience Something New Everyday.
+            <TextEffect
+              per="word"
+              as="p"
+              preset="blur"
+              className="pt-6 font-sans w-fit text-base dark:text-neutral-400"
+            >
+              a Full Stack Developer from India. Learning, Exploring and
+              Experience Something New Everyday.
             </TextEffect>
           </h1>
         </div>
@@ -43,13 +59,14 @@ export default function Home() {
       </section>
       <div className="flex items-start justify-start w-full">
         <h1 className="text-green-500 font-extrabold text-5xl font-prospec text-left">
-          SKILL & <br />{""}
+          SKILL & <br />
+          {""}
           Tools
         </h1>
       </div>
-      <section id="skills" className="md:w-[800px] w-full md:px-10 h-full">
+      <section id="skills" className="md:w-[800px] my-10 w-full md:px-10 h-full">
         <InView
-          viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
+          viewOptions={{ once: true, margin: "0px 0px -250px 0px" }}
           variants={{
             hidden: {
               opacity: 0,
@@ -63,57 +80,55 @@ export default function Home() {
           }}
         >
           <AnimatedBackground
-            className='rounded-lg w-full bg-green-500 dark:bg-green-500'
+            className="rounded-lg w-full fill-green-500 bg-green-400 dark:bg-green-500 text-transparent"
             transition={{
-              type: 'spring',
+              type: "spring",
               bounce: 0.2,
               duration: 0.6,
             }}
             enableHover
           >
             {[
-              ['html.svg', "HTML"],
-              ['css3.svg', "CSS"],
-              ['javascript.svg', "Javascript"],
-              ['typescript.svg', "Typescript"],
-              ['react.svg', "React JS"],
-              ['tailwind.svg', "Tailwind"],
-              ['bootstrap.svg', "Bootstrap"],
-              ['next.svg', "Next JS"],
-              ['node.svg', "Node JS"],
-              ['graphql.svg', "GraphQL"],
-              ['mysql.svg', "MySQL"],
-              ['mongodb.svg', "MongoDB"],
-              ['java.svg', "Java"],
-              ['git.svg', "Git"],
-              ['php.svg', "PHP"],
-              ['figma.svg', "Figma"],
+              [<HtmlSvg key={1} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "HTML"],
+              [<CSSSVG key={2} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "CSS"],
+              [<JavascriptSvg key={3} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Javascript"],
+              [<TypeScriptSvg key={4} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Typescript"],
+              [<ReactSvg key={5} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "React JS"],
+              [<Tailwind key={6} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Tailwind"],
+              [<Bootstrap key={7} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Bootstrap"],
+              [<NextJsSvg key={8} className="rounded w-20 h-20 fill-inherit" pathClassName="rounded w-20 h-20 fill-inherit"/>, "Next JS"],
+              [<NodeSvg key={9} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Node JS"],
+              [<GraphqlSvg key={10} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "GraphQL"],
+              [<MySQLSvg key={11} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "MySQL"],
+              [<MongodbSvg key={12} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "MongoDB"],
+              [<JavaSVG key={13} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Java"],
+              [<GitSvg key={14} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Git"],
+              [<PHP key={15} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "PHP"],
+              [<FigmaSVg key={15} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Figma"],
             ].map((v, index) => {
               return (
-                <div key={index} data-id={`card-${index}`} className="text-center">
+                <div
+                  key={index}
+                  data-id={`card-${index}`}
+                  className="text-center aria-selected:fill-green-400 aria-selected:text-green-400  fill-black text-black"
+                >
                   <motion.div
                     variants={{
-                      hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+                      hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
                       visible: {
                         opacity: 1,
                         scale: 1,
-                        filter: 'blur(0px)',
+                        filter: "blur(0px)",
                       },
                     }}
                     key={index}
-                    className='mb-4 bg-green-200 border-green-700 border-2 rounded-lg p-6 m-3'
+                    className="mb-4  fill-inherit text-inherit bg-zinc-100/70 border-zinc-800 border-4 rounded-lg p-6 m-3"
                   >
-                    <div className='rounded-sm'>
-                      <h3 className='text-base font-medium text-zinc-800 '>
+                    <div className="rounded-sm fill-inherit text-inherit">
+                      <h3 className="text-base font-medium bg-transparent text-inherit">
                         {v[1]}
                       </h3>
-                      <Image
-                        src={v[0]}
-                        height={0}
-                        width={0}
-                        alt={`Image placeholder from cosmos.so, index:${index}`}
-                        className='rounded w-20 h-20'
-                      />
+                      {v[0]}
                     </div>
                   </motion.div>
                 </div>
@@ -124,10 +139,14 @@ export default function Home() {
       </section>
       <div className="flex items-start justify-start w-full">
         <h1 className="text-green-500 font-extrabold text-5xl font-prospec text-left">
-          EDUCATION <br />{""}
+          EDUCATION <br />
+          {""}
         </h1>
       </div>
-      <section id="education" className="w-full my-10 flex flex-col justify-start items-start">
+      <section
+        id="education"
+        className="w-full my-10 flex flex-col justify-start items-start"
+      >
         <InView
           variants={{
             hidden: {
@@ -139,12 +158,14 @@ export default function Home() {
               scale: 1,
             },
           }}
-          className='w-fit max-w-96'
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          viewOptions={{ margin: '0px 0px -150px 0px' }}
+          className="w-fit max-w-96"
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          viewOptions={{ margin: "0px 0px -150px 0px" }}
         >
           <div className="border-l-4 dark:border-white border-l-black px-2 my-2 flex flex-col gap-2">
-            <span className="text-xl font-semibold text-green-500">SECONDARY</span>
+            <span className="text-xl font-semibold text-green-500">
+              SECONDARY
+            </span>
             <p className="mx-3">Sourashtra Boys High School, Madurai</p>
             <p className="mx-3">Completed in 2018 with 85.8%</p>
             <br />
@@ -161,12 +182,14 @@ export default function Home() {
               scale: 1,
             },
           }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          viewOptions={{ margin: '0px 0px -150px 0px' }}
-          className='w-fit max-w-96'
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          viewOptions={{ margin: "0px 0px -150px 0px" }}
+          className="w-fit max-w-96"
         >
           <div className="border-l-4 dark:border-white border-l-black px-2 my-2 flex flex-col gap-2">
-            <span className="text-xl font-semibold text-green-500">HIGHER SECONDARY</span>
+            <span className="text-xl font-semibold text-green-500">
+              HIGHER SECONDARY
+            </span>
             <p className="mx-3">Sourashtra Boys High School, Madurai</p>
             <p className="mx-3">Completed in 2020 with 61%</p>
             <br />
@@ -183,12 +206,14 @@ export default function Home() {
               scale: 1,
             },
           }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          viewOptions={{ margin: '0px 0px -150px 0px' }}
-          className='w-fit max-w-96'
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          viewOptions={{ margin: "0px 0px -150px 0px" }}
+          className="w-fit max-w-96"
         >
           <div className="border-l-4 dark:border-white border-l-black px-2 my-2 flex flex-col gap-2">
-            <span className="text-xl font-semibold text-green-500">B.SC IT</span>
+            <span className="text-xl font-semibold text-green-500">
+              B.SC IT
+            </span>
             <p className="mx-3">The Madura College, Madurai</p>
             <p className="mx-3">Completed in 2023 with 73.6%</p>
             <br />
@@ -200,9 +225,9 @@ export default function Home() {
           Web Projects
         </h1>
       </div>
-      <section id="Web Projects" className="w-11/12">
+      <section id="Web Projects" className="w-11/12 my-10">
         <InView
-          viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
+          viewOptions={{ once: true, margin: "0px 0px -250px 0px" }}
           variants={{
             hidden: {
               opacity: 0,
@@ -212,19 +237,19 @@ export default function Home() {
               transition: {
                 staggerChildren: 0.09,
               },
-              width: '100%',
+              width: "100%",
             },
           }}
           className="w-fit justify-center flex"
         >
           <motion.div
             variants={{
-              hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+              hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
               visible: {
                 opacity: 1,
                 scale: 1,
-                filter: 'blur(0px)',
-                width: '100%',
+                filter: "blur(0px)",
+                width: "100%",
               },
             }}
             className={`mb-4 w-fit h-full flex flex-col items-center gap-20 justify-center`}
@@ -240,14 +265,12 @@ export default function Home() {
                   x: 0,
                 },
               }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              viewOptions={{ margin: '0px 0px -350px 0px' }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              viewOptions={{ margin: "0px 0px -350px 0px" }}
               className="w-fit flex md:flex-row flex-col h-full justify-between  gap-10"
             >
               {WEBPROJECTSONE.map((v, index) => {
-                return (
-                  <ProjectCard key={index} {...v} />
-                );
+                return <ProjectCard key={index} {...v} />;
               })}
             </InView>
             <InView
@@ -261,14 +284,12 @@ export default function Home() {
                   x: 0,
                 },
               }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              viewOptions={{ margin: '0px 0px -350px 0px' }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              viewOptions={{ margin: "0px 0px -350px 0px" }}
               className="w-fit flex md:flex-row flex-col h-full justify-between  gap-10"
             >
               {WEBPROJECTSTWO.map((v, index) => {
-                return (
-                  <ProjectCard key={index} {...v} />
-                );
+                return <ProjectCard key={index} {...v} />;
               })}
             </InView>
           </motion.div>
@@ -279,9 +300,9 @@ export default function Home() {
           Mobile Projects
         </h1>
       </div>
-      <section id="Mobilr Project" className="w-11/12">
+      <section id="Mobilr Project" className="w-11/12 my-10">
         <InView
-          viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
+          viewOptions={{ once: true, margin: "0px 0px -250px 0px" }}
           variants={{
             hidden: {
               opacity: 0,
@@ -291,19 +312,19 @@ export default function Home() {
               transition: {
                 staggerChildren: 0.09,
               },
-              width: '100%',
+              width: "100%",
             },
           }}
           className="w-fit justify-center flex"
         >
           <motion.div
             variants={{
-              hidden: { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+              hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
               visible: {
                 opacity: 1,
                 scale: 1,
-                filter: 'blur(0px)',
-                width: '100%',
+                filter: "blur(0px)",
+                width: "100%",
               },
             }}
             className={`mb-4 w-fit h-full flex flex-col items-center justify-center`}
@@ -319,14 +340,12 @@ export default function Home() {
                   x: 0,
                 },
               }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              viewOptions={{ margin: '0px 0px -350px 0px' }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              viewOptions={{ margin: "0px 0px -350px 0px" }}
               className="w-fit flex md:flex-row flex-col h-full justify-between  gap-10"
             >
               {MOBILEPROJECTS.map((v, index) => {
-                return (
-                  <ProjectCard key={index} {...v} />
-                )
+                return <ProjectCard key={index} {...v} />;
               })}
             </InView>
           </motion.div>
@@ -385,10 +404,7 @@ export default function Home() {
           <section className="text-center m-4 w-full">
             <Separator className="bg-green-600 text-center mb-4" />
             Crafted with ❤️ by Vijaya baskar
-            <p>
-              &copy; 2024
-              vijayabaskar 2024.
-            </p>
+            <p>&copy; 2024 vijayabaskar 2024.</p>
           </section>
         </footer>
       </section>

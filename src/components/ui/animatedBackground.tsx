@@ -72,7 +72,7 @@ export default function AnimatedBackground({
           {activeId === id && (
             <motion.div
               layoutId={`background-${uniqueId}`}
-              className={cn('absolute inset-0', className)}
+              className={cn('absolute inset-0 fill-inherit', className)}
               transition={transition}
               initial={{ opacity: defaultValue ? 1 : 0 }}
               animate={{
@@ -84,7 +84,7 @@ export default function AnimatedBackground({
             />
           )}
         </AnimatePresence>
-        <span className='z-10'>{child.props.children}</span>
+        <span className='z-10 fill-inherit'>{child.props.children}</span>
       </>
     );
   });
