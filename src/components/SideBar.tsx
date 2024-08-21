@@ -52,7 +52,7 @@ const SideBar = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="#"
+              href="https://x.com/Vijayabaskar56"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <TwitterLogoIcon className="h-5 w-5 text-black dark:text-white hover:text-green-500 dark:hover:text-green-500 focus:text-green-400 dark:focus:text-green-500" />
@@ -64,7 +64,7 @@ const SideBar = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="#"
+              href="https://linkedin.com/in/vijaya-baskar"
               className="flex h-9 w-9 items-center justify-center rounded-lg  md:h-8 md:w-8"
             >
               <Linkedin className="h-5 w-5 text-black dark:text-white hover:text-green-500 dark:hover:text-green-500 focus:text-green-400 dark:focus:text-green-500 " />
@@ -76,7 +76,7 @@ const SideBar = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="#"
+              href="mailto:vj2k02@gmail.com"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <Mail className="h-5 w-5 text-black dark:text-white hover:text-green-500 dark:hover:text-green-500 focus:text-green-400 dark:focus:text-green-500" />
@@ -88,7 +88,7 @@ const SideBar = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="#"
+              href="https://github.com/Vijayabaskar56"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <GitHubLogoIcon className="h-5 w-5 text-black dark:text-white hover:text-green-500 dark:hover:text-green-500 focus:text-green-400 dark:focus:text-green-500" />
@@ -100,7 +100,7 @@ const SideBar = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="#"
+              href="blog.vijayabaskar.com"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <NotebookTabsIcon className="h-5 w-5 text-black dark:text-white hover:text-green-500 dark:hover:text-green-500 focus:text-green-400 dark:focus:text-green-500" />
