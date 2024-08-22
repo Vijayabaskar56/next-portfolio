@@ -100,7 +100,7 @@ const SideBar = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="blog.vijayabaskar.com"
+              href="https://blog.vijayabaskar.xyz/"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <NotebookTabsIcon className="h-5 w-5 text-black dark:text-white hover:text-green-500 dark:hover:text-green-500 focus:text-green-400 dark:focus:text-green-500" />
