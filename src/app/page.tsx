@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { MOBILEPROJECTS, WEBPROJECTSONE, WEBPROJECTSTWO } from "./data";
 import { useRive } from "@rive-app/react-canvas";
 import { Bootstrap, CSSSVG, FigmaSVg, GitSvg, GraphqlSvg, HtmlSvg, JavascriptSvg, JavaSVG, MongodbSvg, MySQLSvg, NextJsSvg, NodeSvg, PHP, ReactSvg, Tailwind, TypeScriptSvg } from "@/svg";
+import Link from "next/link";
 
 // import {
 //   Carousel,
@@ -25,7 +26,7 @@ export default function Home() {
   });
 
   return (
-    <main className="flex  md:pl-32 pl-24 flex-col items-center justify-between py-24 md:p-0 sm:w-md md:px-14 px-7">
+    <main className="flex   md:pl-32 pl-24 flex-col items-center justify-between py-24 md:p-0 sm:w-md md:px-14 px-7">
       <section
         id="hero"
         className="grid grid-cols-1 my-auto lg:grid-cols-2 w-sm md:w-full align-middle justify-center items-center h-screen"
@@ -50,6 +51,17 @@ export default function Home() {
               Experience Something New Everyday.
             </TextEffect>
           </h1>
+          <Link href='https://utfs.io/f/41f8ada9-5042-493e-917a-9a8dd3c1aa83-rk1kxj.pdf'>
+            <button className="mt-7 bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block" >
+              <span className="absolute inset-0 overflow-hidden rounded-full ">
+                <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+              </span>
+              <div className="relative h-9 flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
+                <span>{`Download Resume`}</span>
+              </div>
+              <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40"></span>
+            </button>
+          </Link>
         </div>
         <div className="md:flex items-center md:visible justify-center">
           <div className="md:w-[30rem] h-80 sm:display-none">
@@ -78,6 +90,7 @@ export default function Home() {
               },
             },
           }}
+          className="mx-auto"
         >
           <AnimatedBackground
             className="rounded-lg w-full fill-green-500 bg-green-400 dark:bg-green-500 text-transparent"
@@ -89,22 +102,22 @@ export default function Home() {
             enableHover
           >
             {[
-              [<HtmlSvg key={1} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "HTML"],
-              [<CSSSVG key={2} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "CSS"],
-              [<JavascriptSvg key={3} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Javascript"],
-              [<TypeScriptSvg key={4} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Typescript"],
-              [<ReactSvg key={5} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "React JS"],
-              [<Tailwind key={6} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Tailwind"],
-              [<Bootstrap key={7} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Bootstrap"],
-              [<NextJsSvg key={8} className="rounded w-20 h-20 fill-inherit" pathClassName="rounded w-20 h-20 fill-inherit"/>, "Next JS"],
-              [<NodeSvg key={9} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Node JS"],
-              [<GraphqlSvg key={10} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "GraphQL"],
-              [<MySQLSvg key={11} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "MySQL"],
-              [<MongodbSvg key={12} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "MongoDB"],
-              [<JavaSVG key={13} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Java"],
-              [<GitSvg key={14} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Git"],
-              [<PHP key={15} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "PHP"],
-              [<FigmaSVg key={15} className="rounded w-20 h-20 fill-inherit" pathClassName=""/>, "Figma"],
+              [<HtmlSvg key={1} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "HTML"],
+              [<CSSSVG key={2} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "CSS"],
+              [<JavascriptSvg key={3} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Javascript"],
+              [<TypeScriptSvg key={4} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Typescript"],
+              [<ReactSvg key={5} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "React JS"],
+              [<Tailwind key={6} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Tailwind"],
+              [<Bootstrap key={7} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Bootstrap"],
+              [<NextJsSvg key={8} className="rounded w-20 h-20 fill-inherit" pathClassName="rounded w-20 h-20 fill-inherit" />, "Next JS"],
+              [<NodeSvg key={9} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Node JS"],
+              [<GraphqlSvg key={10} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "GraphQL"],
+              [<MySQLSvg key={11} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "MySQL"],
+              [<MongodbSvg key={12} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "MongoDB"],
+              [<JavaSVG key={13} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Java"],
+              [<GitSvg key={14} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Git"],
+              [<PHP key={15} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "PHP"],
+              [<FigmaSVg key={15} className="rounded w-20 h-20 fill-inherit" pathClassName="" />, "Figma"],
             ].map((v, index) => {
               return (
                 <div
@@ -122,7 +135,7 @@ export default function Home() {
                       },
                     }}
                     key={index}
-                    className="mb-4  fill-inherit text-inherit bg-zinc-100/70 border-zinc-800 border-4 rounded-lg p-6 m-3"
+                    className="mb-4  fill-inherit text-inherit bg-zinc-100/90 border-zinc-800 border-4 rounded-lg p-6 m-3"
                   >
                     <div className="rounded-sm fill-inherit text-inherit">
                       <h3 className="text-base font-medium bg-transparent text-inherit">

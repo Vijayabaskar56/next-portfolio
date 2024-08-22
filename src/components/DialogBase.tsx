@@ -45,7 +45,7 @@ export function ProjectCard({
         style={{
           borderRadius: "12px",
         }}
-        className="flex  max-w-[400px] max-h-[400px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+        className="flex  max-w-[400px] max-h-[400px] flex-col overflow-hidden border border-zinc-950/10 bg-zinc-100/90 dark:border-zinc-50/10 dark:bg-zinc-900"
       >
         <DialogImage
           src={image}
