@@ -1,11 +1,12 @@
+import SideBar from "@/components/SideBar";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { basicMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import SideBar from "@/components/SideBar";
-import { ThemeProvider } from "next-themes";
-import { basicMetadata } from "@/lib/metadata";
-import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 const prospec = localFont({
  src: [
   {
@@ -24,6 +25,7 @@ export default function RootLayout({
 }>) {
  return (
   <html lang="en">
+   <Script src="https://analytics.ahrefs.com/analytics.js" data-key="eii6RXxH9Y/BJHvrDPS8wg" async></Script>
    <body className={cn('scroll-smooth', prospec.variable)}>
     <ThemeProvider
      attribute="class"
